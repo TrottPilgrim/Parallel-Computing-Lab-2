@@ -75,7 +75,7 @@ void parallel()
 {
     int current;
     lastNum = (N + 1) / 2 + 1;
-    for (current = 2; current < &floor; current++)
+    for (current = 2; current < lastNum; current++)
     {
         if (isPrime[current])
         {
