@@ -23,7 +23,7 @@ int thread_count;
 bool* isPrime;
 int* primeVals;
 int primeValSize;
-int floor;
+int lastNum;
 
 /* Function declarations */
 void parallel();
@@ -43,7 +43,7 @@ int main(int argc, char *argv[]){
     N = strtol(argv[1], NULL, 10);
     thread_count = strtol(argv[2], NULL, 10);
 
-    isPrime = (bool *) malloc(N * sizeOf(bool));
+    isPrime = (bool *) malloc(N * sizeof(bool));
     if (!isPrime)
     {
         printf("Can't allocate prime boolean array.\n");
@@ -64,7 +64,7 @@ int main(int argc, char *argv[]){
             exit(1);
         }
         for (int i = 2; i < primeValSize; i++)
-            fprintf(fp, "%d %d %d\n", i, primeValues[i]);
+            fprintf(fp, "%d %d %d\n", i, primeVals[i]);
         fclose(fp);
         exit(0);
     }
@@ -74,7 +74,7 @@ int main(int argc, char *argv[]){
 void parallel() 
 {
     int current;
-    floor = (N + 1) / 2 + 1;
+    lastNum = (N + 1) / 2 + 1;
     for (current = 2; current < floor; current++)
     {
         if (isPrime[current])
@@ -87,7 +87,7 @@ void parallel()
                     isPrime[i] = false;
             }
 
-            primeVals[primeValuesSize] = current;
+            primeVals[primeValSize] = current;
             primeValSize++;
         }
     }
