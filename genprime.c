@@ -53,6 +53,8 @@ int main(int argc, char *argv[]){
     for (int i = 0; i < N; i++)
         isPrime[i] = true;
     
+    parallel();
+
     int thread_rank = omp_get_thread_num();
     if (thread_rank == 0)
     {
