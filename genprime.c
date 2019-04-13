@@ -64,7 +64,7 @@ int main(int argc, char *argv[]){
             exit(1);
         }
         for (int i = 2; i < primeValSize; i++)
-            fprintf(fp, "%d %d %d\n", i, primeVals[i]);
+            fprintf(fp, "%d %d\n", i, primeVals[i]);
         fclose(fp);
         exit(0);
     }
@@ -75,7 +75,7 @@ void parallel()
 {
     int current;
     lastNum = (N + 1) / 2 + 1;
-    for (current = 2; current < floor; current++)
+    for (current = 2; current < &floor; current++)
     {
         if (isPrime[current])
         {
