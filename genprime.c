@@ -30,7 +30,7 @@ void parallel();
 
 int main(int argc, char *argv[]){
 
-    char* output[100] = "";
+    char output[100] = "";
     FILE * fp;
 
     if (argc != 3)
