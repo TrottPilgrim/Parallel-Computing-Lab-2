@@ -79,6 +79,7 @@ void parallel()
     lastNum = (N + 1) / 2 + 1;
     for (current = 2; current < lastNum; current++)
     {
+        printf("%d\n", current);
         if (isPrime[current])
         {
             # pragma omp parallel num_threads(thread_count)
