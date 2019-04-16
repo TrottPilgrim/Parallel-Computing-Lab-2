@@ -83,12 +83,12 @@ void parallel()
     lastNum = (N + 1) / 2 + 1;
     primeVals = (int *)malloc(lastNum*sizeof(int));
     // printf("last num: %d thread count: %d\n", lastNum, thread_count);
+    # pragma omp parallel num_threads(thread_count)
     for (current = 2; current < N; current++)
     {
         // printf("%d\n", current);
         if (isPrime[current])
         {
-            # pragma omp parallel num_threads(thread_count)
             {
                 int i;
                 # pragma omp parallel for
